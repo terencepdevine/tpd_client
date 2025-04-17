@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  --color-stone-975: #060504;
+  --color-slate-975: #01030e;
+  --color-gray-975: #02040a;
+  --color-sky-975: #0e1b27;
+  --font-header: "Poppins", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
+}
+
+@utility container {
+  margin: 0 auto;
+  max-width: 2200px;
+}
+
+@layer utilities {
+  .no-scrollbar::-webski-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+::selection {
+  background: var(--color-sky-500);
+  color: var(--color-sky-100);
+}
+
+* {
+  scrollbar-color: var(--color-gray-800) var(--color-gray-975);
+}
+
+body {
+  @apply font-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-header font-extrabold;
+  line-height: 1.25;
+}
+
+p {
+  @apply text-base text-gray-300;
+  line-height: 150%;
+
+  a {
+    &:hover {
+      @apply text-amber-200 underline;
+    }
+  }
+
+  strong {
+    @apply text-gray-50;
+  }
+}
+
+p,
+span {
+  a {
+    @apply font-bold text-amber-400 hover:underline;
+  }
+}
+
+.p-sm p {
+  @apply pb-4 text-lg;
+
+  &:last-child {
+    @apply pb-0;
+  }
+}
+
+.p-lg p {
+  @apply text-lg;
+}
+
+.button {
+  @apply font-header relative z-10 flex cursor-pointer items-center gap-3 rounded-2xl border-0 bg-gray-900/20 px-6 py-3 text-lg font-bold text-amber-50 shadow-md transition-all;
+
+  &:hover {
+    @apply bg-gray-900/100 text-white;
+  }
+}
+
+.button--icon {
+  @apply px-3;
+}
+
+.button::before {
+  content: "";
+  @apply absolute inset-0 z-10 rounded-2xl p-0.5;
+  background: linear-gradient(
+    0deg,
+    var(--color-amber-500),
+    var(--color-amber-300)
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-border-blue {
+  @apply relative overflow-hidden rounded-2xl;
+}
+
+.gradient-border-blue::before {
+  content: "";
+  @apply absolute inset-0 rounded-2xl p-0.5 shadow-lg;
+  background: linear-gradient(
+    180deg,
+    var(--color-blue-300),
+    var(--color-blue-400)
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.tag {
+  @apply font-header px-4 py-2 font-bold text-blue-100;
+}
+
+.wysiwyg {
+  @apply flex flex-col gap-6;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply mt-4 bg-gradient-to-b from-sky-300 to-sky-500 bg-clip-text text-transparent;
+  }
+
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-lg;
+  }
+
+  hr {
+    @apply h-0.5 w-full border-0 bg-gray-800;
+  }
+
+  figure {
+    img {
+      @apply w-full rounded-xl bg-gray-900 p-4;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-main-list {
+    @apply rounded-2xl border-0;
+  }
+
+  .nav-main-list::before {
+    content: "";
+    @apply absolute inset-0 rounded-2xl p-0.5 shadow-lg;
+    background: linear-gradient(
+      180deg,
+      var(--color-amber-300),
+      var(--color-amber-500)
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 768px) {
+  p {
+    @apply text-lg;
+  }
+
+  .p-lg,
+  .p-lg p {
+    @apply text-xl;
+  }
+}
+
+@media (min-width: 1024px) {
+  p {
+    @apply text-xl leading-[1.5];
+  }
+
+  .p-lg,
+  .p-lg p {
+    @apply text-2xl leading-[1.5];
+  }
+
+  .button {
+    @apply text-2xl;
+  }
+}
+
+.gradient-primary {
+  @apply bg-gradient-to-b from-sky-300 to-sky-500 bg-clip-text text-transparent;
+}
+
+.gradient-primary-hover {
+  @apply transition-colors;
+
+  &:hover {
+    @apply text-sky-200;
+  }
+}
+
+.gradient-secondary {
+  @apply bg-gradient-to-b from-sky-50 to-sky-200 bg-clip-text text-transparent;
+}
+
+.gradient-action {
+  @apply bg-gradient-to-b from-amber-300 to-amber-500 bg-clip-text text-transparent;
+}
+
+.gradient-action-hover {
+  @apply transition-colors;
+
+  &:hover {
+    @apply text-amber-200;
+  }
+}
