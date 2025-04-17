@@ -4,8 +4,6 @@ import LinkAction from "../typography/LinkAction/LinkAction";
 import { WPPostType } from "../../types/WPPostType";
 
 const PostBlock = ({ post }: { post: WPPostType }) => {
-  console.log(post);
-
   return (
     <div className="flex flex-col gap-2">
       <h2 className="gradient-primary gradient-primary-hover text-3xl lg:text-4xl xl:text-5xl">
